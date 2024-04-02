@@ -1,0 +1,49 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+
+<div class="main_title">
+						<h2>View Registered users</h2>
+						<p>
+ <table border="2px" class="table table-hover">
+                    <thead>
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Login ID</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Vehicle Number</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Activate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row" style="color: BLUE; background-color:White">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.name}}</td>
+                        <td>{{i.loginid}}</td>
+                        <td>{{i.mobile}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.vehiclenumber}}</td>
+                        <td>{{i.status}}</td>
+
+                        {% if i.status == 'waiting' %}
+                        <td><a class="btn btn-primary pull-right" href="/AdminActivaAutoists/?uid={{ i.id }}"
+                               style="color:DARKBLUE">Activate</a></td>
+                        {% else %}
+                        <td> Activated &nbsp;<a class="btn btn-danger" href="/AdminDeleteAutoists/?uid={{ i.id }}">Delete</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+
+
+                        </p>
+					</div>
+
+{%endblock%}

@@ -1,0 +1,44 @@
+{%extends 'admins/adminbase.html'%}
+{%block contents%}
+
+<div class="main_title">
+						<h2>View Autoist Fatigue</h2>
+<p>
+    <table border="2px" class="table table-hover">
+                    <thead>
+                    <tr class="table-danger">
+                        <th scope="col">S.No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Login User</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Vehicle Number</th>
+                        <th scope="col">Lattitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Fatigue</th>
+                        <th scope="col">Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr scope="row" style="color: BLUE; background-color:White">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.user_name}}</td>
+                        <td>{{i.login_user}}</td>
+                        <td>{{i.email}}</td>
+                        <td>{{i.vehiclenumber}}</td>
+                        <td>{{i.lattitude}}</td>
+                        <td>{{i.longitude}}</td>
+                        <td>{{i.fatigue}}</td>
+                        <td>{{i.c_date}}</td>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+
+
+                        </p>
+					</div>
+
+{%endblock%}
